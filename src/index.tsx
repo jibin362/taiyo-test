@@ -1,15 +1,48 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RootLayout from "./layout/RootLayout";
+import ErrorPage from "./pages/ErrorPage";
+import Contacts from "./pages/Contacts";
+import CreateContact from "./pages/CreateContact";
+import UpdateContact, { loader } from "./pages/UpdateContact";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/contacts",
+        element: <Contacts />,
+      },
+      {
+        path: "/contacts/create",
+        element: <CreateContact />,
+      },
+      {
+        path: "/contacts/:id",
+        loader: loader,
+        element: <UpdateContact />,
+      },
+    ],
+  },
+]);
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 
