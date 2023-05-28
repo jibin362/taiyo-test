@@ -14,7 +14,7 @@ function Contacts() {
   return (
     <div className="w-100 flex flex-col justify-center items-center min-h-screen">
       <Button onClick={onClick}>Create Contact</Button>
-      <div className="w-100 flex flex-wrap mt-10 gap-10">
+      <div className="w-full mt-10 flex items-center justify-center">
         {contacts.length === 0 ? <NoData /> : <ContactList />}
       </div>
     </div>
