@@ -10,6 +10,10 @@ import ErrorPage from "./pages/ErrorPage";
 import Contacts from "./pages/Contacts";
 import CreateContact from "./pages/CreateContact";
 import UpdateContact, { loader } from "./pages/UpdateContact";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ChartMap from "./pages/ChartMap";
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -34,15 +38,21 @@ const router = createBrowserRouter([
         loader: loader,
         element: <UpdateContact />,
       },
+      {
+        path: "/chart-maps",
+        element: <ChartMap />,
+      },
     ],
   },
 ]);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

@@ -11,6 +11,10 @@ import {
 } from "react-router-dom";
 import { store } from "../redux/store";
 
+interface ILoaderData {
+  contact: IContact;
+}
+
 export async function loader({ params }: LoaderFunctionArgs) {
   const id = params.id ? parseInt(params.id) : 0;
   const contacts = store.getState().contact.contacts;
@@ -25,7 +29,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 }
 
 function UpdateContact() {
-  const { contact } = useLoaderData() as { contact: IContact };
+  const { contact } = useLoaderData() as ILoaderData;
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
