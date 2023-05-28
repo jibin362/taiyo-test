@@ -35,13 +35,14 @@ function CreateContact() {
         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div className="sm:col-span-3">
             <label
-              htmlFor="last-name"
+              htmlFor="first-name"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
               First Name
             </label>
             <div className="mt-2">
               <Field
+                id="first-name"
                 type="text"
                 name="firstName"
                 onBlur={handleBlur("firstName")}
@@ -58,10 +59,11 @@ function CreateContact() {
               htmlFor="last-name"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
-              First Name
+              Last Name
             </label>
             <div className="mt-2">
               <Field
+                id="last-name"
                 type="text"
                 name="lastName"
                 onBlur={handleBlur("lastName")}
