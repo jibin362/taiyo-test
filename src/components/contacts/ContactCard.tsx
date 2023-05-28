@@ -27,7 +27,7 @@ function ContactCard({ contact }: IContactCardProp) {
   const statusVariant = contact.status === "active" ? "Success" : "Danger";
 
   return (
-    <div className="w-1/5 p-3 border border-block-200 flex flex-col justify-center items-center drop-shadow-md">
+    <div className="lg:w-1/5 w-[47%] p-3 border border-block-200 flex flex-col justify-center items-center drop-shadow-md">
       <p className="mb-3">
         {contact.firstName} {contact.lastName}
       </p>
