@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { ReactNode } from "react";
 
 type Variant = "Success" | "Danger" | "Warning" | "Primary" | undefined;
@@ -36,7 +37,10 @@ function Button({
     <button
       disabled={disbaled}
       onClick={onClick}
-      className={`${className} focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto mt-5 disabled:bg-neutral-200 disabled:text-black`}
+      className={clsx(
+        "focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto mt-5 disabled:bg-neutral-200 disabled:text-black",
+        className
+      )}
     >
       {children}
     </button>

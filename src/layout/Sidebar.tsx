@@ -1,8 +1,17 @@
 import NavLink from "../components/NavLink";
+import { useAppSelector } from "../redux/hooks";
+import clsx from "clsx";
 
 function Sidebar() {
+  const isSidebarVisible = useAppSelector((state) => state.nav.sidebarVisible);
+
   return (
-    <div className="hidden lg:block fixed z-20 inset-0 top-[3.8125rem] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto border-r-2 border-gray-200">
+    <div
+      className={clsx(
+        "lg:block fixed z-20 inset-0 top-[3.8125rem] right-auto w-[19.5rem] pb-10 px-8 overflow-y-auto border-r-2 border-gray-200 bg-white",
+        [{ hidden: !isSidebarVisible }]
+      )}
+    >
       <nav id="nav" className="lg:text-sm lg:leading-6 relative">
         <ul>
           <li className="mt-12 lg:mt-8">
