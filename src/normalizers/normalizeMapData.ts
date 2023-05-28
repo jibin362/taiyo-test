@@ -1,4 +1,9 @@
-export function normalizeMapData(data: IDiseaseCountryResponse[]) {
+/**
+ * Normalizer function for marker data
+ */
+export function normalizeMapData(
+  data: IDiseaseCountryResponse[]
+): IMarkerData[] {
   const filteredData = data.filter(
     (elem) => elem.countryInfo.iso3 ?? elem.countryInfo.iso2
   );

@@ -46,3 +46,13 @@ interface IDiseaseCountryResponse {
   updated: number;
   countryInfo: ICountryInfo;
 }
+
+interface IMarkerData {
+  id: string;
+  lat: number;
+  long: number;
+  country: string;
+  deaths: number;
+  active: number;
+  recovered: number;
+}

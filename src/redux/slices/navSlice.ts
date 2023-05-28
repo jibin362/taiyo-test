@@ -1,15 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Define a type for the slice state
 interface NavState {
   sidebarVisible: boolean;
 }
 
-// Define the initial state using that type
+// Initial state
 const initialState: NavState = {
   sidebarVisible: false,
 };
 
+/**
+ * Creates nav slice using redux toolkit
+ */
 export const navSlice = createSlice({
   name: "nav",
   initialState,
@@ -23,6 +25,12 @@ export const navSlice = createSlice({
   },
 });
 
+/**
+ * Redux actions for nav slice
+ */
 export const { toggleSidebar, hideSidebar } = navSlice.actions;
 
+/**
+ * Redux reducer for nav slice
+ */
 export default navSlice.reducer;

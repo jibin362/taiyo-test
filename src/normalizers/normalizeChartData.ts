@@ -1,3 +1,6 @@
+/**
+ * Normalizer function for line chart data
+ */
 export function normalizeChartData(data: IAllDiseaseResponse) {
   const labels = Object.keys(data.cases);
   const casesValues = Object.values(data.cases);

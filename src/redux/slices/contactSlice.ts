@@ -1,16 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-// Define a type for the slice state
 interface ContactState {
   contacts: IContact[];
 }
 
-// Define the initial state using that type
+// Initial state
 const initialState: ContactState = {
   contacts: [],
 };
 
+/**
+ * Creates contact slice using redux toolkit
+ */
 export const contactSlice = createSlice({
   name: "contact",
   initialState,
@@ -55,7 +57,13 @@ export const contactSlice = createSlice({
   },
 });
 
+/**
+ * Redux actions for contact slice
+ */
 export const { addContact, updateContact, deleteContact } =
   contactSlice.actions;
 
+/**
+ * Redux reducer for contact slice
+ */
 export default contactSlice.reducer;

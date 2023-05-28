@@ -1,3 +1,7 @@
+/**
+ * Fetches historical data of covid-19 from disease.sh
+ */
+
 export const fetchAllDisease = async (): Promise<IAllDiseaseResponse> => {
   const response = await fetch(
     "https://disease.sh/v3/covid-19/historical/all?lastdays=all"

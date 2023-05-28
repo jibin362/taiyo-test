@@ -15,12 +15,18 @@ interface ILoaderData {
   contact: IContact;
 }
 
+/**
+ * Page load function to retreive data on page load.
+ */
 export async function loader({ params }: LoaderFunctionArgs) {
   const id = params.id ? parseInt(params.id) : 0;
   const contacts = store.getState().contact.contacts;
   const contact = contacts.find((elem) => elem.id === id);
 
   if (!contact) {
+    /**
+     * Redirect user back to contacts age if no matches
+     */
     alert("Oops no contact found!");
     return redirect("/contacts");
   }
@@ -29,6 +35,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 }
 
 function UpdateContact() {
+  // Contact data from loader function
   const { contact } = useLoaderData() as ILoaderData;
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -42,6 +49,9 @@ function UpdateContact() {
       }}
       validationSchema={UserValidationSchema}
       onSubmit={(values, { setSubmitting }) => {
+        /**
+         * Mimic real life API delay using timeout
+         */
         setTimeout(() => {
           dispatch(updateContact({ id: contact.id, ...values }));
           setSubmitting(false);

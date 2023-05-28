@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import ContactReducer from "./slices/contactSlice";
 import NavReducer from "./slices/navSlice";
 
+// Root store for redux
 export const store = configureStore({
   reducer: {
     contact: ContactReducer,

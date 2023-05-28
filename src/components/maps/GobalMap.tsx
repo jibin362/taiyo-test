@@ -9,6 +9,9 @@ import Loader from "../Loader";
 const centerLocation = { lat: 20, lng: 77 };
 
 function GobalMap() {
+  /**
+   * Fetch data from endpoint using tanstack query
+   */
   const { data, error, isError, isLoading } = useQuery<
     IDiseaseCountryResponse[],
     Error
@@ -17,14 +20,23 @@ function GobalMap() {
     queryFn: fetchAllDiseaseCountry,
   });
 
+  /**
+   * Loading component while data is being fetched from servers
+   */
   if (isLoading) {
     return <Loader />;
   }
 
+  /**
+   * Error component when API fails or network is down
+   */
   if (isError && error) {
     return <h2>{error.message || "Oops something went wrong!"}</h2>;
   }
 
+  /**
+   * Normalizes api response data to be used for markers
+   */
   const markerData = normalizeMapData(data);
 
   return (

@@ -7,6 +7,9 @@ interface IContactCardProp {
   contact: IContact;
 }
 
+/**
+ * Contact Card
+ */
 function ContactCard({ contact }: IContactCardProp) {
   const dispatch = useAppDispatch();
   const navigation = useNavigate();

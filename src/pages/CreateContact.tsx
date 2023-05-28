@@ -14,6 +14,9 @@ function CreateContact() {
       initialValues={{ firstName: "", lastName: "", status: "active" }}
       validationSchema={UserValidationSchema}
       onSubmit={(values, { setSubmitting }) => {
+        /**
+         * Mimic real life API delay using timeout
+         */
         setTimeout(() => {
           dispatch(addContact(values));
           setSubmitting(false);

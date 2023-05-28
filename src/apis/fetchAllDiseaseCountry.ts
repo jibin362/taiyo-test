@@ -1,3 +1,7 @@
+/**
+ * Fetches country wise stats of covid-19 from disease.sh
+ */
+
 export const fetchAllDiseaseCountry = async (): Promise<
   IDiseaseCountryResponse[]
 > => {

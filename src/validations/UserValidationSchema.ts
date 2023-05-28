@@ -1,5 +1,8 @@
 import { object, string } from "yup";
 
+/**
+ * Validation schema for user validation
+ */
 export const UserValidationSchema = object().shape({
   firstName: string()
     .min(2, "Too Short!")

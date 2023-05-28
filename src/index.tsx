@@ -13,12 +13,14 @@ import UpdateContact, { loader } from "./pages/UpdateContact";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ChartMap from "./pages/ChartMap";
 
+// Query client for tanstack query
 const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
+// Browser router for our app using react router
 const router = createBrowserRouter([
   {
     path: "/",
